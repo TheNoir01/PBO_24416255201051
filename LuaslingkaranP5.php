@@ -4,8 +4,9 @@ class LuasLingkaran {
     public const phi = 3.14;
     public int $jari;
 
-    public function __construct() {
-        echo "constructing...<br/>";
+    public function __construct($jariValue = 1) {
+        $this->jari = $jariValue;
+        
     }
     public function tampil($nama = 'tabung'):void{
         $rumus = LuasLingkaran::phi * ($this->jari * $this->jari);
@@ -16,10 +17,13 @@ class LuasLingkaran {
         echo "Ini testing static";
     }
     
+    public function __destruct() {
+        echo "<br/> done bang";
+    }
 }
 
-$Lingkaran = new LuasLingkaran();
-$Lingkaran->jari = 10; //input nilai jari-jari
+$Lingkaran = new LuasLingkaran(10);
+//$Lingkaran->jari = 10; //input nilai jari-jari
 $Lingkaran->tampil("galon"); //tampilkan luas lingkaran
 
 LuasLingkaran::testing(); //memanggil method static
